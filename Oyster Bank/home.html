@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Home</title>
+    </head>
+    <body>
+        <! navigation bar ->
+        <div class="navbar">
+            <a href="help.html">Help</a>
+            <a href="register.html">Register</a>
+            <a href="home.html">Home</a>  
+        </div>
+            
+            <! div box that is used to store each of the forms within ->
+            <div class="Box">
+                <div class="loginimg">
+                    <p><b>Login</b></p>
+                </div>
+                <p1>Not got an <a href="register.html" style="text-decoration: none"> account? </a> No worries!</p1>
+                
+                <! this is the first form that looks at user input this is for customer noo, account no, email, password ->
+                <form name="login">
+                    Customer No:  
+                    <input type="text"  name="customerNo" id="customerNo" oninput="CustomerNoValidation()"><p id="result"></p>
+                    Account No:
+                    <input type="text" name="AccountNo" id="AccountNo" oninput="AccountNoVal()"><p id="result2"></p>
+                    Email:
+                    <input type="text"
+                    name="emailAdd" id="emailAdd" oninput="emailValidation()"><p id="result3"></p>
+                    Password:
+                    <input type="password"
+                    name="password" id="password" oninput="PasswordVal()"><p id="result4"></p>
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                    <br>
+                    <br>
+                    <input type="button" value="submit" onclick="loginUser();">
+
+                </form>
+            </div>
+        
+        <script>
+          
+        function CustomerNoValidation()
+            {
+              var custNumber = document.login.customerNo.value;
+                var newPattern = new RegExp(/^[0-9\s]+$/);
+                
+                if(newPattern.test(custNumber) && customerNo.value.length > 10)
+                    {
+                        document.getElementById("result").textContent = "Customer Numer is valid";
+                        document.getElementById("result").style.color = "green";
+                        customerNo.style.outlineColor = "green";
+                    }
+                else{
+                        document.getElementById("result").textContent = "Customer Number should be 10 numbers long and should not include letters or special charters";
+                        document.getElementById("result").style.color = "red";
+                        customerNo.style.outlineColor = "red";
+                    }
+            }
+            
+            
+            function AccountNoVal()
+            {
+                var AccNo = document.login.AccountNo.value;
+                var newPattern2 = new RegExp(/^[0-9\s]+$/);
+                
+                if(newPattern2.test(AccNo) && AccountNo.value.length > 10)
+                    {
+                        document.getElementById("result2").textContent = "Account Number is valid";
+                        document.getElementById("result2").style.color = "green";
+                        AccountNo.style.outlineColor = "green";
+                    }
+                else{
+                        document.getElementById("result2").textContent = "Account Number should be 10 numbers long and should not include letters or special charters";
+                        document.getElementById("result2").style.color = "red";
+                        AccountNo.style.outlineColor = "red";
+                    }
+            }
+            
+            
+            function emailValidation()
+            {
+                var email = document.login.emailAdd.value;
+                var newPattern3 = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+                
+                if(newPattern3.test(email))
+                    {
+                        document.getElementById("result3").textContent = "email address is valid";
+                        document.getElementById("result3").style.color = "green";
+                        emailAdd.style.outlineColor = "green";
+                    }
+                else{
+                        document.getElementById("result3").textContent = "Please use the correct email format example@example.com";
+                        document.getElementById("result3").style.color = "red";
+                        emailAdd.style.outlineColor = "red";
+                    }
+            }
+            
+           
+            function PasswordVal()
+            {
+                var pass = document.login.password.value;
+                var newPattern4 = new RegExp(/^[A-Za-z]\w{7,15}$/);
+                
+                if(newPattern4.test(pass))
+                    {
+                        document.getElementById("result4").textContent= "Password is correct";
+                        document.getElementById("result4").style.color = "green";
+                        password.style.outlineColor = "green";
+                    }
+                else{
+                        document.getElementById("result4").textContent= "Password should contai a capitial letter and should be longer than 8 charaters";
+                        document.getElementById("result4").style.color = "red";
+                        password.style.outlineColor = "red";
+                }
+            }
+            
+            function myFunction() 
+            {
+                  var x = document.getElementById("password");
+                  if (x.type === "password") {
+                    x.type = "text";
+                  } else {
+                    x.type = "password";
+                  }
+            }
+        
+        </script>
+    </body>
+</html>

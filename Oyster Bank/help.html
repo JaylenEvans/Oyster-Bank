@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <title>Help</title>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="help.html">Help</a>
+            <a href="register.html">Register</a>
+            <a href="home.html">Home</a>  
+        </div>
+        
+        <div class="helpimg">
+            <p><b>Help</b></p>
+        </div>
+        <h38>Need a helping hand? no problem!</h38>
+        
+        <button class="accordion">Q.</button>
+        <div class="panel">
+            <p>Here is a valid answer!</p>
+        </div>
+        
+        <button class="accordion">Q.Why are their buttons at the end of each section?</button>
+        <div class="panel">
+            <p>We do this to ensure that we check all ifnrotmion that is being<br>enetered nto the form to ensure that we give our <br>
+            customers the best service possible. By utting in theses extra<br>
+            checks it saves time for us and you!</p>
+        </div>
+        
+        <button class="accordion">Q.Why does it not allow me to submit my application?</button>
+        <div class="panel">
+        <p>We are sorry to hear this issue is happening. Please ensure that <br>
+        you are enetering the correct details in each box. For example; If the <br>
+        registration is asking for a name please ensure that you enter text and <br> not a numerical entity. If you are still expirecing this issue <br>please contact us Bankname@bankname.com</p>
+        </div>
+    </body>
+    
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+</script>
+</html>

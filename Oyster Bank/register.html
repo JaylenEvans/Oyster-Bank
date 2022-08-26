@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <title>Register</title>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="help.html">Help</a>
+            <a href="register.html">Register</a>
+            <a href="home.html">Home</a>  
+        </div>
+        
+        <! div class used to contain the first section which is register ->
+            <div class="regimg">
+                <p><b>Register</b></p>
+            </div>
+            <h3>User details</h3>
+            <div class="userdetail">
+                <form name="register">
+            
+            <! frst asks user to selecte their title from the option box ->
+                title
+                <select>
+                    <option value="Miss">Miss</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Ms">Ms</option>
+                </select>
+                <br>
+                <! then looks at first name, middle and last, dob, address, postcode, telephone, email ->
+                    First Name 
+                    <input type="text" name="FirstName" id="FirstName" oninput="FirstNameVal()">       
+                    
+                    Last Name
+                    <input type="text"
+                    name="LastName" id="LastName" oninput="LastNameVal()">
+                    <br>
+                   
+                    <label id="result"></label><label id="result3"></label> 
+                    
+                    <br>
+                    D.O.B
+                    <input type="text" name="dob" id="dob" oninput="dateVal()">
+                    <br>
+                     
+                    <label id="result4"></label>
+                    
+                    <br>
+                    Address:
+                    <textarea rows="7" cols="60" input type="text" name="address" id="address" oninput="AddVal()">
+                    </textarea>
+                    <br>
+                    
+                    <label id="result5"></label>
+                    <br>
+                    
+                    Postcode:
+                    <input type="text"
+                    name="postcode" id="postcode" oninput="PostcodeVal()">
+                    
+                    Telephone:
+                    <input type="text"
+                    name="telephone" id="telephone" oninput="telephoneVal()">
+                    <br>
+                    <label id="result6"></label><label id="result7"></label>
+                    <br>
+                    
+                    Email:
+                    <input type="text"
+                    name="email" id="email" oninput="emailVal()">
+                    <br>
+                    <label id="result8"></label>
+                    <br>
+                    <input type="button" value="submit" onclick="userdets();">
+                </form>
+            </div>
+        
+    
+        
+        <! first div section ->
+        <script>
+            
+          
+            function FirstNameVal()
+            {
+                var fname = document.register.FirstName.value;
+                var newPatten = new RegExp(/^[a-zA-Z\s]+$/);
+                
+                if(newPatten.test(fname) && FirstName.value.length < 25)
+                    {
+                        document.getElementById("result").textContent = "First Name is validated";
+                        document.getElementById("result").style.color = "green";
+                        FirstName.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                        document.getElementById("result").textContent = "Please make sure that First Name does not include numbers or special charaters";
+                        document.getElementById("result").style.color = "red";
+                        FirstName.style.backgroundColor = "#ffcccc";
+                }
+            }
+            
+            
+         
+            function LastNameVal()
+            {
+                var LName = document.register.LastName.value;
+                var newPattern = new RegExp(/^[a-zA-Z\s]+$/);
+                
+                if(newPattern.test(LName) && LastName.value.length < 25)
+                    {
+                        document.getElementById("result3").textContent = "Last Name is validated";
+                        document.getElementById("result3").style.color = "green";
+                        LastName.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                        document.getElementById("result3").textContent = "Please make sure that Last Name does not include numbers or special charaters";
+                        document.getElementById("result3").style.color = "red";
+                        LastName.style.backgroundColor = "#ffcccc";
+                }
+            }
+            
+        
+            function dateVal()
+            {
+                var date = document.register.dob.value;
+                var newPattern = new RegExp(/(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/);
+                
+                if(newPattern.test(date))
+                    {
+                        document.getElementById("result4").textContent = "Date of birth Validated";
+                        document.getElementById("result4").style.color = "green";
+                        dob.style.backgroundColor = "lightgreen";
+                    }
+                    else{
+                        document.getElementById("result4").textContent ="Please enter in DD/MM/YYYY format ONLY";
+                        document.getElementById("result4").style.color = "red";
+                        dob.style.backgroundColor = "#ffcccc";
+                    }
+            }
+            
+           
+            function AddVal()
+            {
+                var add = document.register.address.value;
+                
+                
+                
+                if(address.value.length > 3)
+                    {
+                        document.getElementById("result5").textContent = "Address is not valid";
+                        document.getElementById("result5").style.color = "red";
+                        address.style.backgroundColor = "#ffcccc";
+                    }
+                else{
+                        document.getElementById("result5").textContent = "Address is validated";
+                        document.getElementById("result5").style.color="green";
+                        address.style.backgroundColor = "lightgreen";
+                }
+            }
+            
+           
+            function PostcodeVal()
+            {
+                var Post = document.register.postcode.value;
+                var newPattern = new RegExp(/^[A-Z]{1,2}[0-9]{1,2}[A-Z]{0,1} ?[0-9][A-Z]{2}$/);
+                
+                if(newPattern.test(Post))
+                    {
+                        document.getElementById("result6").textContent = "Postcode is valid";
+                        document.getElementById("result6").style.color = "green";
+                        postcode.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                    document.getElementById("result6").textContent = "Please enter a valid postcode AA1 1AA, thankyou";
+                    document.getElementById("result6").style.color = "red";    
+                    postcode.style.backgroundColor = "#ffcccc";
+                }
+            }
+            
+            
+            function telephoneVal()
+            {
+                var telenum = document.register.telephone.value;
+                var newPattern = new RegExp(/(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|\#)\d{3,4})?$/);
+                
+                if(newPattern.test(telenum))
+                    {
+                       document.getElementById("result7").textContent = "telephone is valid";
+                        document.getElementById("result7").style.color = "green";
+                        telephone.style.backgroundColor = "lightgreen";
+                    }
+                    else{
+                        document.getElementById("result7").textContent = "Please enter a valid telehone number";
+                        document.getElementById("result7").style.color = "red";
+                        telephone.style.backgroundColor = "#ffcccc";
+                    }
+            }
+            
+           
+            function emailVal()
+            {
+                var emadd = document.register.email.value;
+                var newPattern = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+                
+                if(newPattern.test(emadd))
+                    {
+                        document.getElementById("result8").textContent = "Email address is valid";
+                        document.getElementById("result8").style.color = "green";
+                        email.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                    document.getElementById("result8").textContent = "Please enter valid email address example@example.com";
+                    document.getElementById("result8").style.color = "red";
+                    email.style.backgroundColor = "#ffcccc";
+                }
+            }
+        </script>
+        
+        <!--- account section ---->
+        
+                       <h34>Account</h34>
+            <div class="account">
+            <form name="account">
+        
+        
+                Account Name:
+                <input type="text" name="accountName" id="accountName" oninput ="AccountVal()">
+                
+                Account No:
+                <input type="text"
+                name="accountNo" id="accountNo" oninput="AccountNo()">
+                
+                Holding Branch:
+                <select>
+                    <option value="Natwest"> Natwest</option>
+                    <option value="Barclays"> Barclays</option>
+                    <option value="Nationwide">Nationwide</option>
+                    <option value="lloyds">Lloyds</option>
+                    <option value="HSBC"> HSBC</option>
+                </select>
+                <br>
+                <br>
+                <label id="result9"></label><label id="result10"></label>
+                <br>
+                
+                Sort Code:
+                <input type="text"
+                name="sort" id="sort" oninput="sortVal()">
+                
+                Expire Date
+                <input type="text" name="Expire" id="Expire" oninput="ExpireVal()">
+                
+                CVVS
+                <input type="text" name="cvvs" id="cvvs" oninput="CvvsVal()">
+                <br>
+                <br>
+                <label id="result11"></label><label id="result12"></label><label id="result13"></label>
+                <br>
+                Passcode
+                <input type="password" name="Passcode" id="Passcode" oninput="passVal()">
+                <input type="checkbox" onclick="myFunction()">Show Password
+                <br>
+                <br>
+                <label id="result14"></label>
+                <input type="button" value="submit" onclick="AccountReg();">
+                </form>
+            </div>
+        <br>
+        <br>
+        <br>
+        
+        <! Account javascript ->
+        <script>
+            
+            
+            function AccountVal()
+            {
+                var accountNa = document.account.accountName.value;
+                var newPattern = new RegExp(/^[a-zA-Z\s]+$/);
+                
+                if(newPattern.test(accountNa) && accountName.value.length < 25 )
+                    {
+                        document.getElementById("result9").textContent = "Account Name is valid";
+                        document.getElementById("result9").style.color = "green";
+                        accountName.style.backgroundColor = "lightgreen";     
+                    }
+                else{
+                        document.getElementById("result9").textContent = "Account Name cannot conatin any numbers or special charters";
+                        document.getElementById("result9").style.color = "red";
+                        accountName.style.backgroundColor = "#ffcccc";
+                }                    
+            }
+        
+         
+            function AccountNo()
+            {
+                var AccNum = document.account.accountNo.value;
+                var newPattern = new RegExp(/^[0-9\s]+$/);
+                
+                if(newPattern.test(AccNum) && accountNo.value.length < 8)
+                    {
+                        document.getElementById("result10").textContent = "Account Number is correct";
+                        document.getElementById("result10").style.color = "green";
+                        accountNo.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                        document.getElementById("result10").textContent = "Accoutn Number should only contain numbers nd be less then 8 charters long";
+                        document.getElementById("result10").style.color = "red";
+                        accountNo.style.backgroundColor = "#ffcccc";
+                }
+            }
+            
+            
+            
+            function sortVal()
+            {
+                var sortnum = document.account.sort.value;
+                var newPattern = new RegExp(/^[0-9\s]+$/);
+                
+               if(newPattern.test(sortnum) && sort.value.length < 6)
+                   {
+                       document.getElementById("result11").textContent = "Sort code validated";
+                       document.getElementById("result11").style.color = "green";
+                       sort.style.backgroundColor = "lightgreen";
+                   }
+                else{
+                    document.getElementById("result11").textContent = "Sort Code is invaild";
+                    document.getElementById("result11").style.color = "red";
+                    sort.style.backgroundColor = "#ffcccc";
+                }
+            }
+        
+           
+            function ExpireVal()
+            {
+                var expiredate = document.account.Expire.value;
+                var newPattern = new RegExp(/(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/);
+                
+                if(newPattern.test(expiredate))
+                   {
+                        document.getElementById("result12").textContent = "Expire Date is validated";
+                        document.getElementById("result12").style.color = "green";
+                        Expire.style.backgroundColor = "lightgreen";
+                   }
+                else{
+                        document.getElementById("result12").textContent = "Expire Date is invaild formate please DD/MM/YYYY";
+                        document.getElementById("result12").style.color = "red";
+                        Expire.style.backgroundColor = "#ffcccc";
+                }
+            }
+            
+            
+           function CvvsVal()
+            {
+                var cvvsNum = document.account.cvvs.value;
+                var newPattern = new RegExp(/^[0-9\s]+$/);
+                
+                if(newPattern.test(cvvsNum) && cvvs.value.length <4)
+                    {
+                       document.getElementById("result13").textContent = "CVVS is validated";
+                        document.getElementById("result13").style.color = "green";
+                        cvvs.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                        document.getElementById("result13").textContent = "CVVS is invaild";
+                        document.getElementById("result13").style.color = "red";
+                        cvvs.style.backgroundColor = "#ffcccc";
+                }
+                
+            }
+           
+            
+            function passVal()
+            {
+                var pass = document.account.Passcode.value;
+                var newPattern = new RegExp(/^[A-Za-z]\w{7,15}$/);
+                
+                if(newPattern.test(pass))
+                    {
+                        document.getElementById("result14").textContent = "Passcode is validated";
+                        document.getElementById("result14").style.color = "green";
+                        Passcode.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                        document.getElementById("result14").textContent = "Passcode cannot include special characters";
+                        document.getElementById("result14").style.color = "red";
+                        Passcode.style.backgroundColor = "#ffcccc";
+                }
+                
+            }
+            
+            function myFunction() 
+            {
+                  var x = document.getElementById("Passcode");
+                  if (x.type === "Passcode") {
+                    x.type = "text";
+                  } else {
+                    x.type = "Passcode";
+                  }
+            }
+        
+        </script>
+        
+            <! last form for fincial history of the person ->
+        
+            <h35>Finanical History</h35>
+            <div class="FinancialHist">
+                <form name="Finaical">
+
+         <! radio buttons to see what their employment is like ->
+                <p>are you?</p>
+                    <input type="radio" name="status" value="Employed">Employed
+                    <input type="radio" name="status" value="Sel-Employed">Self-employed
+                    <input type="radio" name="status" value="retired">Retired<br><br>
+                    <input type="radio" name="status" value="Unemployed">Unemployed
+                    <input type="radio" name="status" value="Student">Student<br><br>
+
+            <! asking for employeer name, occupation, annual income ->
+                    Employeer
+                    <input type="text" name="Employeer" id="Employeer"oninput="employeerVal()">
+
+                    Occupation
+                    <input type="text" name="Occupation" id="Occupation" oninput="OccupationVal()">
+
+                    Annual Income £
+                    <input type="text" name="AnnualIn" id="AnnualIn" oninput="AnnualVal()">
+                    <br>
+                    <br>
+                    <input type="button" value="submit" onclick="FinanicalHist();">
+                    <label id="result15"></label><label id="result16"></label><label id="result17"></label>
+                </form>
+            </div>
+            <br>
+            <br>
+            <br>
+        
+        <!--- Finanical historyjavascript -->
+        <script>
+           
+            function employeerVal()
+            {
+                var employ = document.Finaical.Employeer.value;
+                var newPattern = new RegExp(/^[a-zA-Z\s]+$/);
+                
+                if(newPattern.test(employ) && Employeer.value.length < 36)
+                    {
+                        document.getElementById("result15").textContent = "Employeer name validated";
+                        document.getElementById("result15").style.color = "green";
+                        Employeer.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                        document.getElementById("result15").textContent = "Employeer Name is not validated, No Numeratic charaters";
+                        document.getElementById("result15").style.color = "red";
+                        Employeer.style.backgroundColor = "#ffcccc";
+                }
+            }
+            
+            function OccupationVal()
+            {
+                var occu= document.Finaical.Occupation.value;
+                var newPattern = new RegExp(/^[a-zA-Z\s]+$/);
+                
+                if(newPattern.test(occu) && Occupation.value.length < 26)
+                    {
+                        document.getElementById("result16").textContent = "Occupation is validated";
+                        document.getElementById("result16").style.color = "green";
+                        Occupation.style.backgroundColor= "lightgreen";
+                    }
+                else{
+                        document.getElementById("result16").textContent = "Occupation is not validated - no numeric or special charaters";
+                        document.getElementById("result16").style.color = "red";
+                        Occupation.style.backgroundColor = "#ffcccc";
+                }
+                
+            }
+            
+            function AnnualVal()
+            {
+                var Annual = document.Finaical.AnnualIn.value;
+                var newPattern = new RegExp(/^[0-9]+$/);
+                
+                if(newPattern.test(Annual) && AnnualIn.value.length <10)
+                    {
+                        document.getElementById("result17").textContent = "Annual Income is validated";
+                        document.getElementById("result17").style.color = "green";
+                        AnnualIn.style.backgroundColor = "lightgreen";
+                    }
+                else{
+                    document.getElementById("result17").textContent = "Annual Income is invalidated";
+                    document.getElementById("result17").style.color = "red";
+                    AnnualIn.style.backgroundColor = "#ffcccc";
+                }
+            }
+        </script>
+</body>
+</html>

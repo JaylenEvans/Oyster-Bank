@@ -1,0 +1,173 @@
+body{
+    font-family: sans-serif;
+}
+
+/*navigation style */
+.navbar{
+    overflow: hidden;
+    background-color:lightblue;
+    position: fixed; /* fixed position at top */
+    top: 0; /* set at top of page */
+    width: 100%;
+}
+
+.navbar a {
+    float: right;
+    display: block;
+    color: #136f63;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    background: white;
+    color: #ff9b71;
+}
+
+.regimg{
+    background-color: #ff9b71;
+    box-shadow: 3px 5px #136f63;
+    position: absolute;
+    z-index: 3;
+    width: 200px;
+    left: 550px;
+    top: 80px;
+    text-align: center;
+    color: #e84855;
+}
+
+.userdetail{
+    border-radius: 25px;
+    border: 2px solid #e84855;
+    padding: 20px;
+    width: 1000px;
+    height: 340px;
+    position: relative;
+    top: 190px;
+    left: 110px;
+}
+
+h3{
+    bottom: 400px;
+    left: 130px;
+    position: absolute;
+    color: #136f63;
+}
+
+form{
+    padding: 20px;
+    color: #136f63;
+    font-weight: bold;
+}
+
+.account{
+    border-radius: 25px;
+    border: 2px solid #ff9b71;
+    padding: 20px;
+    width: 1000px;
+    height: 160px;
+    position: relative;
+    left: 110px;
+    top: 230px;
+}
+
+h34{
+    color: #e84855;
+    font-weight: bold;
+    position: absolute;
+    bottom: -10px;
+    left: 130px;
+    font-size: 20px;
+}
+
+form1{
+    padding: 20px;
+    color: #e84855;
+    font-weight: bold;
+}
+
+h35{
+    color: #ff9b71;
+    font-weight: bold;
+    position: absolute;
+    bottom: -260px;
+    left: 130px;
+    font-size: 20px;
+}
+
+form3{
+    padding: 20px;
+    color: #ff9b71;
+    font-weight: bold;
+}
+
+
+.FinancialHist{
+    border-radius:25px;
+    border: 2px solid #136f63 ;
+    padding: 20px;
+    width: 1000px;
+    height: 195px;
+    position: relative;
+    left: 110px;
+    top: 230px;
+}
+
+
+
+.helpimg{
+    background-color: #136f63;
+    box-shadow: 3px 5px #ff9b71;
+    position: absolute;
+    z-index: 3;
+    width: 200px;
+    bottom: 460px;
+    left: 500px;
+    text-align: center;
+    color: #e84855;
+}
+
+h38{
+    font-weight: bold;
+    position: absolute;
+    color: #e84855;
+    bottom: 430px;
+    left: 460px;
+}
+
+.accordion {
+  background-color:#ff9b71;
+  color: #136f63;
+    font-weight: bold;
+  cursor: pointer;
+  padding: 18px;
+  width: 60%;
+  border: none;
+bottom: -200px;
+    left: 260px;
+    position: relative;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #e84855; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+position: relative;
+    left: 250px;
+    top: 200px;
+}
+
+.label{
+    display: inline;
+    margin-right: 500px;
+}
